@@ -3,9 +3,18 @@ import "./App.css";
 import Avatar from "react-avatar-edit";
 function App() {
   const [image, setImage] = useState("");
+  const [image2, setImage2] = useState("");
+ 
+  const array = [image,image2]
+console.log(array);
+
+
   const onCrop = (view) => {
     setImage(view);
-    console.log(view);
+  };
+
+  const onCrop2 = (view) => {
+    setImage2(view)
   };
 
   const onClose = (view) => {
@@ -23,13 +32,23 @@ function App() {
         width={300}
         height={300}
         onCrop={onCrop}
-        label={"Select an Image"}
         exportAsSquare={true}
         onClose={onClose}
-        exportSize={800}
+        exportSize={300}
         onBeforeFileLoad={onBeforeFileLoad}
       />
-      {image && <img width={500} src={image} alt="dd" />}
+      {image && <img width={300} src={image} alt="dd" />}
+      <Avatar
+        name="P1"
+        width={300}
+        height={300}
+        onCrop={onCrop2}
+        exportAsSquare={true}
+        onClose={onClose}
+        exportSize={300}
+        onBeforeFileLoad={onBeforeFileLoad}
+      />
+      {image2 && <img width={300} src={image2} alt="dd" />}
     </div>
   );
 }
